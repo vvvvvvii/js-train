@@ -124,13 +124,13 @@ sup {
 }
 
 a {
-  color: #00807E;
+  color: #007bff;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #003433;
+  color: #0056b3;
   text-decoration: underline;
 }
 
@@ -183,7 +183,7 @@ table {
 caption {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  color: #00000029;
+  color: #6c757d;
   text-align: left;
   caption-side: bottom;
 }
