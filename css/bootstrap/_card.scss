@@ -40,6 +40,13 @@
 
 .card-title {
   margin-bottom: $card-spacer-y;
+  font-size: 24px;
+  color: $primary;
+  padding-bottom: 4px;
+}
+
+.card-title-border-bottom{ 
+  border-bottom: 2px solid $primary !important; 
 }
 
 .card-subtitle {
@@ -128,6 +135,7 @@
 // Card image caps
 .card-img-top {
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  height: 180px;
   @include border-top-radius($card-inner-border-radius);
 }
 
