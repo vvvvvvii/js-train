@@ -12,11 +12,11 @@
 <body>
     <div class="add-ticket-area container d-flex justify-content-center align-items-center">
         <div class="add-ticket-form row justify-content-center">
-            <div class="col-5">
+            <div class="col-6">
                 <img src="img/undraw_Traveling_re_weve (1).png" alt="travel-img">
                 <img src="img/Let’s Travel !.png" alt="lets-travel">
             </div>
-            <div class="col-5">
+            <div class="col-6">
                 <h1 class="h4 text-primary pb-1 mb-9 border-bottom-3 border-primary">新增旅遊套票</h1>
                 <form>
                     <div class="form-group row align-items-center mb-4">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="form-group row mb-6">
                         <label for="exampleFormControlTextarea1" class="col-4 text-primary">套票描述</label>
-                        <textarea class="form-control col-8" id="exampleFormControlTextarea1" cols="100" placeholder="請填寫套票描述（限 100 字）"></textarea>
+                        <textarea class="form-control col-8" id="exampleFormControlTextarea1" rows="5" maxlength="100" placeholder="請填寫套票描述（限 100 字）"></textarea>
                     </div>
                     <div class="form-group d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary px-9 py-2">新增套票</button>
@@ -73,41 +73,11 @@
                 </select>
                 <p class="text-gray-dark">本次搜尋共 6 筆資料</p>
             </div>
-            <ul class="row">
-                <li class="col-4">
-                    <div class="card position-relative shadow bg-white rounded">
-                        <div class="info-tag-lg position-absolute">
-                            <h3 class="h5">台北</h3>
-                        </div>
-                        <img src="img/photo-1477894387642-00a731c511b3.png" class="card-img-top" alt="">
-                        <div class="info-tag-sm position-absolute">
-                            <p>8.6</p>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title card-title-border-bottom mb-4">綠島自由行套裝行程</h5>
-                            <p class="card-text mb-8">
-                                嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center text-primary">
-                                <p class="d-flex align-items-center">
-                                    <span class="material-icons mr-1">
-                                        error
-                                    </span>
-                                    剩下最後 8 組
-                                </p>
-                                <p class="h2 d-flex align-items-center mr-1">
-                                    <span class="h6">TWD</span>
-                                    $1,280
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+            <ul class="row" id="ticketList">
+                <!--用js插入資料庫內容-->
             </ul>
         </div>
     </div>
-    
-    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="all.js"></script>
