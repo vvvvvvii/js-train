@@ -96,7 +96,6 @@ function addTicket(e){
     }
 }
 function regionFilter(){
-    console.log(regionSelect.value);
     if(regionSelect.value=="taipei"){
         let filter = data.filter(item=>{
             if(item.region=="台北"){
