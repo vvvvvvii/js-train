@@ -49,8 +49,6 @@ let data = [
         price: 2480
     }
 ]
-let ticketList = document.querySelector('#ticketList');
-let regionSelect = document.querySelector('#regionSelect');
 let addTicketSubmit = document.querySelector('#addTicketSubmit');
 let addTicketName = document.querySelector('#addTicketName');
 let addImageURL = document.querySelector('#addImageURL');
@@ -58,6 +56,9 @@ let addRegion = document.querySelector('#addRegion');
 let addScore = document.querySelector('#addScore');
 let addTicketInfo = document.querySelector('#addTicketInfo');
 let addPrice = document.querySelector('#addPrice');
+let ticketList = document.querySelector('#ticketList');
+let regionSelect = document.querySelector('#regionSelect');
+let searchResultLength = document.querySelector('#searchResultLength');
 
 //event listener
 document.addEventListener('DOMContentLoaded',showTicket(data));
@@ -158,4 +159,5 @@ function showTicket(i){
     </li>`
     })
     ticketList.innerHTML = str;
+    searchResultLength.innerHTML = `本次搜尋共${i.length}筆資料`
 }
