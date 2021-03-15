@@ -92,11 +92,10 @@ function addTicket(e){
             leftNum: parseInt(addLeftNum.value),
             price: parseInt(addPrice.value)
         });
-        showTicket();
+        showTicket(data);
     }
 }
 function regionFilter(){
-    console.log(regionSelect.value);
     if(regionSelect.value=="taipei"){
         let filter = data.filter(item=>{
             if(item.region=="台北"){
