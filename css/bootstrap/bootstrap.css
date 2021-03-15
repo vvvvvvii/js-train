@@ -164,7 +164,7 @@ a {
 
 a:hover {
   color: #003433;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -5184,6 +5184,11 @@ input[type="button"].btn-block {
   height: 180px;
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card-img-top:hover {
+  opacity: 0.5;
+  background-color: #FFFFFF;
 }
 
 .card-img-bottom {

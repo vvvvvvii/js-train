@@ -137,6 +137,10 @@
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
   height: 180px;
   @include border-top-radius($card-inner-border-radius);
+  &:hover{
+    opacity: 0.5;
+    background-color: $light;
+  }
 }
 
 .card-img-bottom {

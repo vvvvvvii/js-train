@@ -128,7 +128,7 @@ function showTicket(i){
             item.leftNum = `剩下最後 ${item.leftNum}  組`;
         }
         str+=`<li class="col-4 mb-6">
-        <div class="card position-relative shadow bg-white rounded">
+        <a href="#" class="card position-relative shadow bg-white rounded" title="了解更多">
             <div class="info-tag-lg position-absolute">
                 <h3 class="h5">${item.region}</h3>
             </div>
@@ -154,7 +154,7 @@ function showTicket(i){
                     </p>
                 </div>
             </div>
-        </div>
+        </a>
     </li>`
     })
     ticketList.innerHTML = str;
