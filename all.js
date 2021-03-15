@@ -50,6 +50,7 @@ let data = [
     }
 ]
 let ticketList = document.querySelector('#ticketList');
+let regionSelect = document.querySelector('#regionSelect');
 let addTicketSubmit = document.querySelector('#addTicketSubmit');
 let addTicketName = document.querySelector('#addTicketName');
 let addImageURL = document.querySelector('#addImageURL');
@@ -59,7 +60,8 @@ let addTicketInfo = document.querySelector('#addTicketInfo');
 let addPrice = document.querySelector('#addPrice');
 
 //event listener
-document.addEventListener('DOMContentLoaded',showTicket)
+document.addEventListener('DOMContentLoaded',showTicket(data));
+regionSelect.addEventListener('change',regionFilter)
 addTicketSubmit.addEventListener('click',addTicket); //本來想用submit事件，但沒辦法執行成功（我有加e.preventDefault呀？）還請助教解惑！
 
 //function
@@ -91,11 +93,37 @@ function addTicket(e){
         });
         showTicket();
     }
-    console.log(data);
 }
-function showTicket(){
+function regionFilter(){
+    console.log(regionSelect.value);
+    if(regionSelect.value=="taipei"){
+        let filter = data.filter(item=>{
+            if(item.region=="台北"){
+                return item;
+            }
+        })
+        showTicket(filter);
+    }else if(regionSelect.value=="taichung"){
+        let filter = data.filter(item=>{
+            if(item.region=="台中"){
+                return item;
+            }
+        })
+        showTicket(filter);
+    }else if(regionSelect.value=="kaohsiung"){
+        let filter = data.filter(item=>{
+            if(item.region=="高雄"){
+                return item;
+            }
+        })
+        showTicket(filter);
+    }else{
+        showTicket(data);
+    }
+}
+function showTicket(i){
     let str = "";
-    data.forEach(item=>{
+    i.forEach(item=>{
         if(typeof(item.leftNum)=="number"){
             item.leftNum = `剩下最後 ${item.leftNum}  組`;
         }
@@ -131,4 +159,3 @@ function showTicket(){
     })
     ticketList.innerHTML = str;
 }
-
