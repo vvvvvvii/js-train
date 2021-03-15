@@ -251,7 +251,7 @@ th {
 
 label {
   display: inline-block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 
 button {
@@ -2079,11 +2079,12 @@ pre code {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
+  color: #818A91;
+  background-color: #F7F7F7;
   background-clip: padding-box;
   border: 1px solid #F7F7F7;
-  border-radius: 0.25rem;
+  border-bottom: 1px solid #00807E;
+  border-radius: 0;
   -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2112,22 +2113,22 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #DEE2E6;
+  color: #818A91;
   opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #DEE2E6;
+  color: #818A91;
   opacity: 1;
 }
 
 .form-control::-ms-input-placeholder {
-  color: #DEE2E6;
+  color: #818A91;
   opacity: 1;
 }
 
 .form-control::placeholder {
-  color: #DEE2E6;
+  color: #818A91;
   opacity: 1;
 }
 
@@ -7196,6 +7197,10 @@ button.bg-gray-dark:focus {
   border-left: 0 !important;
 }
 
+.border-bottom-3 {
+  border-bottom: 3px solid #dee2e6 !important;
+}
+
 .border-primary {
   border-color: #00807E !important;
 }
@@ -12230,6 +12235,18 @@ a.text-gray-dark:hover, a.text-gray-dark:focus {
 
 .vertical-align-middle {
   vertical-align: middle;
+}
+
+.add-ticket-area {
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+
+.add-ticket-form {
+  -webkit-box-shadow: 0px 3px 6px #00000029;
+          box-shadow: 0px 3px 6px #00000029;
+  border-radius: 12px;
+  padding: 60px 95px;
 }
 
 .ticket-area {
