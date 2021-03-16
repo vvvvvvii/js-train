@@ -49,6 +49,7 @@ let data = [
         price: 2480
     }
 ]
+let addTicketForm = document.querySelector('#addTicketForm');
 let addTicketSubmit = document.querySelector('#addTicketSubmit');
 let addTicketName = document.querySelector('#addTicketName');
 let addImageURL = document.querySelector('#addImageURL');
@@ -93,6 +94,7 @@ function addTicket(e){
             price: parseInt(addPrice.value)
         });
         showTicket(data);
+        addTicketForm.reset();
     }
 }
 function regionFilter(){
