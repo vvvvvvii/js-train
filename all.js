@@ -50,7 +50,6 @@ let data = [
     }
 ]
 let addTicketForm = document.querySelector('#addTicketForm');
-let addTicketSubmit = document.querySelector('#addTicketSubmit');
 let addTicketName = document.querySelector('#addTicketName');
 let addImageURL = document.querySelector('#addImageURL');
 let addRegion = document.querySelector('#addRegion');
@@ -64,7 +63,7 @@ let searchResultLength = document.querySelector('#searchResultLength');
 //event listener
 document.addEventListener('DOMContentLoaded',showTicket(data));
 regionSelect.addEventListener('change',regionFilter)
-addTicketSubmit.addEventListener('click',addTicket); //本來想用submit事件，但沒辦法執行成功（我有加e.preventDefault呀？）還請助教解惑！
+addTicketForm.addEventListener('submit',addTicket); 
 
 //function
 function addTicket(e){
@@ -99,25 +98,13 @@ function addTicket(e){
 }
 function regionFilter(){
     if(regionSelect.value=="taipei"){
-        let filter = data.filter(item=>{
-            if(item.region=="台北"){
-                return item;
-            }
-        })
+        let filter = data.filter(item=>{item.region=="台北"})
         showTicket(filter);
     }else if(regionSelect.value=="taichung"){
-        let filter = data.filter(item=>{
-            if(item.region=="台中"){
-                return item;
-            }
-        })
+        let filter = data.filter(item=>{item.region=="台中"})
         showTicket(filter);
     }else if(regionSelect.value=="kaohsiung"){
-        let filter = data.filter(item=>{
-            if(item.region=="高雄"){
-                return item;
-            }
-        })
+        let filter = data.filter(item=>{item.region=="高雄"})
         showTicket(filter);
     }else{
         showTicket(data);
