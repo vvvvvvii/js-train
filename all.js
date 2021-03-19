@@ -98,13 +98,13 @@ function addTicket(e){
 }
 function regionFilter(){
     if(regionSelect.value=="taipei"){
-        let filter = data.filter(item=>{item.region=="台北"})
+        let filter = data.filter(item=>item.region=="台北")
         showTicket(filter);
     }else if(regionSelect.value=="taichung"){
-        let filter = data.filter(item=>{item.region=="台中"})
+        let filter = data.filter(item=>item.region=="台中")
         showTicket(filter);
     }else if(regionSelect.value=="kaohsiung"){
-        let filter = data.filter(item=>{item.region=="高雄"})
+        let filter = data.filter(item=>item.region=="高雄")
         showTicket(filter);
     }else{
         showTicket(data);
