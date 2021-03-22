@@ -1,0 +1,22 @@
+*, *::after, *::before {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+  
+html, body {
+  line-height: 1.2;
+}
+  
+img {
+  max-width: 100%;
+  display: block;
+}
+
+body {
+    font-family: "Microsoft JhengHei";
+}
+ul, ol{
+    list-style: none;
+}
