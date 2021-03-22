@@ -162,7 +162,7 @@ a {
 
 a:hover {
   color: #f1d575;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -198,8 +198,10 @@ figure {
 }
 
 img {
-  vertical-align: middle;
   border-style: none;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 svg {
@@ -5306,16 +5308,15 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #F8EABA;
-  background-color: #fff;
-  border: 1px solid #dee2e6;
+  color: #343a40;
+  background-color: #F8EABA;
 }
 
 .page-link:hover {
   z-index: 2;
-  color: #f1d575;
+  color: #fff;
   text-decoration: none;
-  background-color: #e9ecef;
+  background-color: #FAE085;
   border-color: #dee2e6;
 }
 

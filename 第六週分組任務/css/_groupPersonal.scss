@@ -1,0 +1,45 @@
+.content{
+    padding-top: 60px;
+    padding-bottom: 14px;
+}
+.top-menu-group,.top-menu-personal{
+    width: 245px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    padding-left: 24px;
+    background: $secondary;
+    &:hover,&:active,&focus{
+        width: 340px;
+        transition: 2s;
+    }
+}
+.top-menu-group:hover{
+    background: $danger;
+}
+.top-menu-personal:hover{
+    background: $info;
+}
+.active{
+    width: 340px;
+}
+.top-menu-item{
+    width: calc(100% - 370px);
+    height: 200px;
+    margin-left: 30px;
+    background-position: 0 -35px;
+}
+.result-box{
+    padding: 48px 95px 60px;
+    &-title{
+        font-size: 48px;
+        margin-bottom: 48px;
+    }
+    &-inner{
+        padding: 60px 60px 80px 60px;
+        background: $light;
+    }
+    &-item{
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+}

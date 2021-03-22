@@ -1,0 +1,25 @@
+.index-menu{
+    padding-top: 68px;
+    padding-bottom: 105px;
+}
+.index-menu-item{
+    width: 100%;
+    height: 500px;
+    &:hover{
+        opacity: 0.8;
+        transition-duration: 2s;
+    }
+}
+.bg-group{
+   background-image: url('https://github.com/vvvvvvii/js-train/blob/main/%E7%AC%AC%E5%85%AD%E9%80%B1%E5%88%86%E7%B5%84%E4%BB%BB%E5%8B%99/img/brooke-cagle--uHVRvDr7pg-unsplash.jpg?raw=true');
+}
+.bg-personal{
+    background-image: url('https://github.com/vvvvvvii/js-train/blob/main/%E7%AC%AC%E5%85%AD%E9%80%B1%E5%88%86%E7%B5%84%E4%BB%BB%E5%8B%99/img/taylor-heery-EI3VqTOgl3A-unsplash.jpg?raw=true');
+}
+.bg-group,.bg-personal{
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

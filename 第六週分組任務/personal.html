@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.css">
+    <title>第六週分組任務</title>
+</head>
+<body>
+    <div class="content">
+        <div class="d-flex mb-10">
+            <div>
+                <a href="group.html" class="text-light">
+                    <div class="top-menu-group">
+                        GROUP
+                    </div>
+                </a>
+                <a href="personal.html" class="text-light">
+                    <div class="top-menu-personal bg-info active">
+                        PERSONAL
+                    </div>
+                </a>
+            </div>
+            <div class="bg-personal top-menu-item">
+                <h3 class="h1 text-light">決戰 BMI Kata</h3>
+            </div>
+        </div>
+        <div class="container">
+            <div class="bg-primary result-box mb-10">
+                <h2 class="result-box-title">總平均秒數排名</h2>
+                <ul class="result-box-inner">
+                    <!--js插入資料-->
+                </ul>
+            </div>
+            <div class="row">
+                <div class="offset-3 col-6">
+                    <div class="form-group row align-items-center">
+                        <label for="sortSelect" class="col-4">排序方式</label>
+                        <select class="col-8 form-control" id="sortSelect">
+                          <option value="sendTime">送出時間</option>
+                          <option value="finishTime">完成秒數</option>
+                        </select>
+                    </div>
+                    <ul>
+                        <!--js插入資料-->
+                    </ul>
+                    <nav aria-label="Page navigation" class="d-flex justify-content-center">
+                        <ul class="pagination">
+                          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="all.js"></script>
+</body>
+</html>

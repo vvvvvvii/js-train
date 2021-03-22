@@ -131,7 +131,7 @@ a {
 
 a:hover {
   color: #f1d575;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -167,8 +167,10 @@ figure {
 }
 
 img {
-  vertical-align: middle;
   border-style: none;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 svg {

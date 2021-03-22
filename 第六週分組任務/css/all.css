@@ -162,7 +162,7 @@ a {
 
 a:hover {
   color: #f1d575;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -198,8 +198,10 @@ figure {
 }
 
 img {
-  vertical-align: middle;
   border-style: none;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 svg {
@@ -5306,16 +5308,15 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #F8EABA;
-  background-color: #fff;
-  border: 1px solid #dee2e6;
+  color: #343a40;
+  background-color: #F8EABA;
 }
 
 .page-link:hover {
   z-index: 2;
-  color: #f1d575;
+  color: #fff;
   text-decoration: none;
-  background-color: #e9ecef;
+  background-color: #FAE085;
   border-color: #dee2e6;
 }
 
@@ -12038,5 +12039,100 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.index-menu {
+  padding-top: 68px;
+  padding-bottom: 105px;
+}
+
+.index-menu-item {
+  width: 100%;
+  height: 500px;
+}
+
+.index-menu-item:hover {
+  opacity: 0.8;
+  -webkit-transition-duration: 2s;
+          transition-duration: 2s;
+}
+
+.bg-group {
+  background-image: url("https://github.com/vvvvvvii/js-train/blob/main/%E7%AC%AC%E5%85%AD%E9%80%B1%E5%88%86%E7%B5%84%E4%BB%BB%E5%8B%99/img/brooke-cagle--uHVRvDr7pg-unsplash.jpg?raw=true");
+}
+
+.bg-personal {
+  background-image: url("https://github.com/vvvvvvii/js-train/blob/main/%E7%AC%AC%E5%85%AD%E9%80%B1%E5%88%86%E7%B5%84%E4%BB%BB%E5%8B%99/img/taylor-heery-EI3VqTOgl3A-unsplash.jpg?raw=true");
+}
+
+.bg-group, .bg-personal {
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content {
+  padding-top: 60px;
+  padding-bottom: 14px;
+}
+
+.top-menu-group, .top-menu-personal {
+  width: 245px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+  padding-left: 24px;
+  background: #A3A3A3;
+}
+
+.top-menu-group:hover, .top-menu-group:active, .top-menu-groupfocus, .top-menu-personal:hover, .top-menu-personal:active, .top-menu-personalfocus {
+  width: 340px;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+.top-menu-group:hover {
+  background: #F4576F;
+}
+
+.top-menu-personal:hover {
+  background: #4D61FA;
+}
+
+.active {
+  width: 340px;
+}
+
+.top-menu-item {
+  width: calc(100% - 370px);
+  height: 200px;
+  margin-left: 30px;
+  background-position: 0 -35px;
+}
+
+.result-box {
+  padding: 48px 95px 60px;
+}
+
+.result-box-title {
+  font-size: 48px;
+  margin-bottom: 48px;
+}
+
+.result-box-inner {
+  padding: 60px 60px 80px 60px;
+  background: #fff;
+}
+
+.result-box-item {
+  font-size: 32px;
+  margin-bottom: 40px;
 }
 /*# sourceMappingURL=all.css.map */
