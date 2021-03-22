@@ -1,26 +1,38 @@
+let groupSubmitNum = document.querySelector('#groupSubmitNum');
 axios.get('https://raw.githubusercontent.com/hexschool/js-traninging-week6API/main/data.json')
   .then(function(response){
     if(response.status==200){
-      checkTime(response.data);
-      checkGroup(response.data);
-      let timeArr = response.data.map(item=>(60*item.practiceMinute)+Number(item.practiceSecond))
-      console.log(timeArr)
+      groupSubmitDataOrganize(response.data);
     }
 })
-function checkTime(data){
-  let practiceTime=[];
-  data.forEach(item=>{
-    practiceTime.push((60*item.practiceMinute)+Number(item.practiceSecond));
+function groupSubmitDataOrganize(data){
+  let groupAry = data.map(item=>item.jsGroup);
+  //console.log(data);
+  let groupSubmitNumObj = {};
+  groupAry.forEach(item=>{ 
+    if(item!="未分組"){ //扣掉未分組者
+      groupSubmitNumObj[item]=(groupSubmitNumObj[item]||0)+1; 
+    }
   })
-  //console.log(practiceTime);
+  let maximum = [...Object.values(groupSubmitNumObj)].sort((x,y)=>y-x); //只取數量轉回陣列由大排到小
+  maximum = Array.from(new Set(maximum)); //刪掉重複數字
+  for(let i=0;i<maximum.length;i++){ //maximum的長度代表名次共有幾名（一個名次可能不只一組），依序建立名次的字串
+    let str=` 
+      <li class="result-box-item mb-7">
+          第${i+1}名
+          <span class="ml-5" id=groupSubmit${i+1}>
+          </span>
+      </li>
+    `
+    groupSubmitNum.innerHTML+=str;
+    Object.values(groupSubmitNumObj).forEach((item,index)=>{ //取出groupSubmitNumObj的值，index+1即會是組別
+        if(item==maximum[i]){ //當值跟對應名次的值相同，代表該組為該對應名次
+          let str=`
+            <span class="result-box-number-ball">${index+1}</span>
+          `
+          document.querySelector(`#groupSubmit${i+1}`).innerHTML+=str;
+          return;
+        }
+    })
+  }
 }
-function checkGroup(data){
-  data.map(item=>console.log(item))
-}
-/*
-請用 BMI kata API用 Code 寫出以下需求
-可以看到最佳組別投稿數排名、總平均秒數排名
-可以看到個人排名列表，
-我能在每個參賽者中看到每個人的留言、YT 連結、分鐘數
-篩選排序方式：可依投遞時間、秒數(由高到低)
-*/

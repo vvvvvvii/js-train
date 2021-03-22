@@ -106,7 +106,7 @@ ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: 1rem;
+  list-style-type: none;
 }
 
 ol ol,
@@ -12133,6 +12133,17 @@ a.text-dark:hover, a.text-dark:focus {
 
 .result-box-item {
   font-size: 32px;
-  margin-bottom: 40px;
+}
+
+.result-box-number-ball {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 50%;
+  background: #F4576F;
+  color: #fff;
+  margin-left: 8px;
+  font-size: 28px;
+  text-align: center;
 }
 /*# sourceMappingURL=all.css.map */

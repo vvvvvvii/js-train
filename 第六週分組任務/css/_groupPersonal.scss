@@ -40,6 +40,16 @@
     }
     &-item{
         font-size: 32px;
-        margin-bottom: 40px;
+    }
+    &-number-ball{
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        border-radius: 50%;
+        background: $danger;
+        color: $light;
+        margin-left: 8px;
+        font-size: 28px;
+        text-align: center;
     }
 }
