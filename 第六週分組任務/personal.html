@@ -28,9 +28,14 @@
         <div class="container">
             <div class="bg-primary result-box mb-10">
                 <h2 class="result-box-title">總平均秒數排名</h2>
-                <ul class="result-box-inner">
-                    <!--js插入資料-->
-                </ul>
+                <div class="d-flex">
+                    <ul class="result-box-inner" id="personalTimeAverageTop5">
+                        <!--js插入資料-->
+                    </ul>
+                    <ul class="result-box-inner" id="personalTimeAverageTop10">
+                        <!--js插入資料-->
+                    </ul>
+                </div>
             </div>
             <div class="row">
                 <div class="offset-3 col-6">
@@ -58,6 +63,6 @@
         </div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="all.js"></script>
+    <script src="personal.js"></script>
 </body>
 </html>
