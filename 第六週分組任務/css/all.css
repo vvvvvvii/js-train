@@ -12124,6 +12124,7 @@ a.text-dark:hover, a.text-dark:focus {
 .result-box-title {
   font-size: 48px;
   margin-bottom: 48px;
+  text-align: center;
 }
 
 .result-box-inner {
@@ -12133,6 +12134,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .result-box-item {
   font-size: 32px;
+  color: #A3A3A3;
 }
 
 .result-box-number-ball {
@@ -12151,5 +12153,38 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 20px;
   font-weight: bold;
   line-height: 50px;
+}
+
+.message-board {
+  font-size: 24px;
+}
+
+.message-board-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.message-board-content {
+  width: 730px;
+  background: #F8EABA;
+  padding: 24px 20px 40px;
+}
+
+.message-board-toolbox {
+  width: 255px;
+  margin-left: 30px;
+  background: #FAE085;
+  padding: 45px 20px;
+}
+
+.message-board-link {
+  font-size: 32px;
+  color: #fff;
+}
+
+.message-board-link:hover {
+  color: #A3A3A3;
 }
 /*# sourceMappingURL=all.css.map */
