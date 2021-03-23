@@ -44,10 +44,8 @@ function groupSubmitDataOrganize(data){
       })
     }
   }
-  function groupAverageTimeDataOrganize(data){
-    data.forEach(item=>{ //新增totalTime（分鐘數*60+秒數）的屬性到每個人的資料中
-      item.totalTime = Number(item.practiceMinute)*60+Number(item.practiceSecond);  
-    })
+function groupAverageTimeDataOrganize(data){
+    data.forEach(item=>item.totalTime = Number(item.practiceMinute)*60+Number(item.practiceSecond)) //新增totalTime（分鐘數*60+秒數）的屬性到每個人的資料中
     let groupTotalTimeArr = [];
     for(let i=1;i<=27;i++){
       let groupArr = data.filter(item=>item.jsGroup==i); //每個組別單獨抽成一個陣列
@@ -56,20 +54,20 @@ function groupSubmitDataOrganize(data){
       groupTotalTimeArr.push(arrTotal/groupArr.length); //總秒數除以陣列長度（＝組別人數）得到該組平均時間，得到的結果放進groupTotalTimeArr陣列，讓他紀錄全部組別的平均數
     }
     //平均秒數最佳組別渲染到畫面上
-    let maximum = [...groupTotalTimeArr].sort((x,y)=>y-x); //只取數量轉回陣列由大排到小
-    maximum = Array.from(new Set(maximum)); //刪掉重複數字
+    let minimum = [...groupTotalTimeArr].sort((x,y)=>x-y); //只取數量轉回陣列由少排到多
+    minimum = Array.from(new Set(minimum)); //刪掉重複數字
     for(let i=0;i<5;i++){ //取前五名，依序建立名次的字串
       let str=` 
-        <li class="result-box-item mb-7">
+        <li class="result-box-item d-flex justify-content-between mb-7">
             第${i+1}名
-            <span class="result-box-paragraph" id=groupTimeAverage${i+1}>
+            <span class="result-box-paragraph text-danger" id=groupTimeAverage${i+1}>
             </span>
         </li>
       `
       groupTimeAverageTop5.innerHTML+=str;
       groupTotalTimeArr.forEach((item,index)=>{ //取出groupTotalTimeArr的值，index+1即會是組別
-        if(item==maximum[i]){ //當值跟對應名次的值相同，代表該組為該對應名次
-          let str=`第${index+1}組`
+        if(item==minimum[i]){ //當值跟對應名次的值相同，代表該組為該對應名次
+          let str=`第${index+1}組（${item.toFixed(1)}秒）`
           document.querySelector(`#groupTimeAverage${i+1}`).innerHTML+=str;
           return;
         }
@@ -77,20 +75,20 @@ function groupSubmitDataOrganize(data){
     }
     for(let i=5;i<10;i++){ //取六到十名，依序建立名次的字串
       let str=` 
-        <li class="result-box-item mb-7">
+        <li class="result-box-item d-flex justify-content-between mb-7">
             第${i+1}名
-            <span class="result-box-paragraph" id=groupTimeAverage${i+1}>
+            <span class="result-box-paragraph text-danger" id=groupTimeAverage${i+1}>
             </span>
         </li>
       `
       groupTimeAverageTop10.innerHTML+=str;
       groupTotalTimeArr.forEach((item,index)=>{ //取出groupTotalTimeArr的值，index+1即會是組別
-        if(item==maximum[i]){ //當值跟對應名次的值相同，代表該組為該對應名次
-          let str=`第${index+1}組`
+        if(item==minimum[i]){ //當值跟對應名次的值相同，代表該組為該對應名次
+          let str=`第${index+1}組（${item.toFixed(1)}秒）`
           document.querySelector(`#groupTimeAverage${i+1}`).innerHTML+=str;
           return;
         }
       })
     }
-  }
+}
   

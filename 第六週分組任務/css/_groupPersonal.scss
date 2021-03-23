@@ -53,8 +53,8 @@
         text-align: center;
     }
     &-paragraph{
-        margin-left: 120px;
-        color: $danger;
+        font-size: 20px;
         font-weight: bold;
+        line-height: 50px; //垂直置中
     }
 }
