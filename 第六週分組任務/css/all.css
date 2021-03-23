@@ -12146,4 +12146,10 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 28px;
   text-align: center;
 }
+
+.result-box-paragraph {
+  margin-left: 120px;
+  color: #F4576F;
+  font-weight: bold;
+}
 /*# sourceMappingURL=all.css.map */
