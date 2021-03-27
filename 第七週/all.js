@@ -15,8 +15,8 @@ axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelAp
     .then(function(response){
         if(response.status==200){
             data = response.data.data;
-            console.log(data)
             showTicket(data);
+            drawChart(data);
         }
     })
     .catch(function(err){ //順便練習 vue 班預習課程
@@ -55,6 +55,7 @@ function addTicket(e){
             price: parseInt(addPrice.value)
         });
         showTicket(data);
+        drawChart(data);
         addTicketForm.reset();
     }
 }
@@ -110,4 +111,50 @@ function showTicket(i){
     })
     ticketList.innerHTML = str;
     searchResultLength.innerHTML = `本次搜尋共${i.length}筆資料`
+}
+function drawChart(data){ //c3.js
+    let taipeiNum=0;
+    let taichungNum=0;
+    let kaohsiungNum=0;
+    data.forEach(item=>{
+        if(item.area=="台北"){
+            taipeiNum++
+        }else if(item.area=="台中"){
+            taichungNum++
+        }else{
+            kaohsiungNum++
+        }
+    })
+    let chart = c3.generate({
+        bindto: '#areaChart',
+        size: {
+            height: 160,
+            width: 160
+        },
+        data: {
+            columns: [
+                ['台北', taipeiNum],
+                ['台中', taichungNum],
+                ['高雄', kaohsiungNum]
+            ],
+            type: 'donut',
+            colors: {
+                台北: '#26C0C7',
+                台中: '#5151D3',
+                高雄: '#E68618'
+            },
+            color: function (color, d) {
+                // d will be 'id' when called for legends
+                return d.id && d.id === 'data3' ? d3.rgb(color).darker(d.value / 150) : color;
+            },
+        },
+        donut: {
+            title: "套票地區比重",
+            width: 10,
+            label: {
+                show: false,
+            }
+        },
+    });    
+
 }
