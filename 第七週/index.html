@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="/path/to/c3.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
+    <title>商品篩選器</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="add-ticket-container col-10 offset-1">
+                <div class="add-ticket-area row justify-content-center">
+                    <div class="col-5">
+                        <img src="img/undraw_Traveling_re_weve (1).png" alt="travel-img">
+                        <img src="img/Let’s Travel !.png" alt="lets-travel">
+                    </div>
+                    <div class="col-5">
+                        <h1 class="h4 text-primary pb-1 mb-9 border-bottom-3 border-primary">新增旅遊套票</h1>
+                        <form id="addTicketForm">
+                            <div class="form-group row align-items-center mb-4">
+                                <label for="addTicketName" class="col-4 text-primary">套票名稱</label>
+                                <input type="text" class="form-control col-8" id="addTicketName" placeholder="請填寫套票名稱">
+                            </div>
+                            <div class="form-group row align-items-center mb-4">
+                                <label for="addImageURL" class="col-4 text-primary">套票網址</label>
+                                <input type="text" class="form-control col-8" id="addImageURL" placeholder="請填寫套票網址">
+                            </div>
+                            <div class="form-group row align-items-center mb-4">
+                                <label for="addRegion" class="col-4 text-primary">景點地區</label>
+                                <select class="form-control col-8" id="addRegion">
+                                    <option disabled selected hidden>請選擇景點地區</option>
+                                    <option>台北</option>
+                                    <option>台中</option>
+                                    <option>高雄</option>
+                                </select>
+                            </div>
+                            <div class="form-group row align-items-center mb-4">
+                                <label for="addPrice" class="col-4 text-primary">套票金額</label>
+                                <input type="number" class="form-control col-8" id="addPrice" placeholder="請填寫套票金額">
+                            </div>
+                            <div class="form-group row align-items-center mb-4">
+                                <label for="addleftNum" class="col-4 text-primary">套票組數</label>
+                                <input type="number" class="form-control col-8" id="addLeftNum" placeholder="請填寫套票組數">
+                            </div>
+                            <div class="form-group row align-items-center mb-4">
+                                <label for="addScore" class="col-4 text-primary">套票星級</label>
+                                <input type="number" class="form-control col-8" id="addScore" placeholder="請填寫套票星級" min="0" max="10" ㄕㄛ>
+                            </div>
+                            <div class="form-group row mb-6">
+                                <label for="addTicketInfo" class="col-4 text-primary">套票描述</label>
+                                <textarea class="form-control col-8" id="addTicketInfo" rows="5" maxlength="100" placeholder="請填寫套票描述（限 100 字）"></textarea>
+                            </div>
+                            <div class="form-group d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary px-9 py-2">新增套票</button>
+                            </div>
+                        </form>
+                        <ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-gray-light">
+        <div class="ticket-area container">
+            <div class="d-flex justify-content-between">
+                <div class="search-bar mb-9">
+                    <select name="regionSelect" class="select-form" id="regionSelect">
+                        <option value="search" disabled selected hidden>地區搜尋</option>
+                        <option value="all">全部地區</option>
+                        <option value="taipei">台北</option>
+                        <option value="taichung">台中</option>
+                        <option value="kaohsiung">高雄</option>
+                    </select>
+                    <p class="text-gray-dark" id="searchResultLength"></p>
+                </div>
+                <div>
+                    12333
+                    <!--放c3.js-->
+                </div>
+            </div>
+            
+            <ul class="row" id="ticketList">
+                <!--用js插入資料庫內容-->
+            </ul>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>  
+    <script src="/path/to/d3.v5.min.js" charset="utf-8"></script>
+    <script src="/path/to/c3.min.js"></script>
+    <script src="all.js"></script>
+</body>
+</html>
