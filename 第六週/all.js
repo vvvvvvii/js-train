@@ -1,14 +1,4 @@
 let data;
-axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json')
-    .then(function(response){
-        if(response.status==200){
-            data = response.data.data;
-            showTicket(data);
-        }
-    })
-    .catch(function(err){ //順便練習 vue 班預習課程
-        console.log(err.response);
-    })
 let addTicketForm = document.querySelector('#addTicketForm');
 let addTicketName = document.querySelector('#addTicketName');
 let addImageURL = document.querySelector('#addImageURL');
@@ -19,6 +9,19 @@ let addPrice = document.querySelector('#addPrice');
 let ticketList = document.querySelector('#ticketList');
 let regionSelect = document.querySelector('#regionSelect');
 let searchResultLength = document.querySelector('#searchResultLength');
+
+//axios
+axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json')
+    .then(function(response){
+        if(response.status==200){
+            data = response.data.data;
+            console.log(data)
+            showTicket(data);
+        }
+    })
+    .catch(function(err){ //順便練習 vue 班預習課程
+        console.log(err.response);
+    })
 
 //event listener
 regionSelect.addEventListener('change',regionFilter)
@@ -43,12 +46,12 @@ function addTicket(e){
         alert('請填寫套票金額');
     }else{
         data.push({
-            ticketName: addTicketName.value,
-            imageURL: addImageURL.value,
-            region: addRegion.value,
-            score: parseInt(addScore.value),
-            ticketInfo: addTicketInfo.value,
-            leftNum: parseInt(addLeftNum.value),
+            name: addTicketName.value,
+            imgUrl: addImageURL.value,
+            area: addRegion.value,
+            rate: parseInt(addScore.value),
+            description: addTicketInfo.value,
+            group: parseInt(addLeftNum.value),
             price: parseInt(addPrice.value)
         });
         showTicket(data);
@@ -57,13 +60,13 @@ function addTicket(e){
 }
 function regionFilter(){
     if(regionSelect.value=="taipei"){
-        let filter = data.filter(item=>item.region=="台北")
+        let filter = data.filter(item=>item.area=="台北")
         showTicket(filter);
     }else if(regionSelect.value=="taichung"){
-        let filter = data.filter(item=>item.region=="台中")
+        let filter = data.filter(item=>item.area=="台中")
         showTicket(filter);
     }else if(regionSelect.value=="kaohsiung"){
-        let filter = data.filter(item=>item.region=="高雄")
+        let filter = data.filter(item=>item.area=="高雄")
         showTicket(filter);
     }else{
         showTicket(data);
@@ -72,7 +75,6 @@ function regionFilter(){
 function showTicket(i){
     let str = "";
     i.forEach(item=>{
-        console.log(item)
         if(typeof(item.group)=="number"){
             item.group= `剩下最後 ${item.group}  組`;
         }
