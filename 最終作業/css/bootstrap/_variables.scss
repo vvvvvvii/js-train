@@ -66,20 +66,22 @@ $colors: map-merge(
   $colors
 );
 
-$primary:       $blue !default;
-$secondary:     $gray-600 !default;
+$primary:       #301E5F !default;
+$light-primary: #6A33F8 !default;
+$secondary:     #f8f8f8 !default;
 $success:       $green !default;
 $info:          $cyan !default;
-$warning:       $yellow !default;
+$warning:       #C72424 !default;
 $danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-800 !default;
+$light:         #fff !default;
+$dark:          #000 !default;
 
 $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(
   (
     "primary":    $primary,
+    "light-primary":    $light-primary,
     "secondary":  $secondary,
     "success":    $success,
     "info":       $info,
@@ -130,11 +132,20 @@ $spacers: () !default;
 $spacers: map-merge(
   (
     0: 0,
-    1: ($spacer * .25),
-    2: ($spacer * .5),
-    3: $spacer,
-    4: ($spacer * 1.5),
-    5: ($spacer * 3)
+    1: ($spacer * .5), //8
+    2: ($spacer * .75), //12
+    3: $spacer, //16
+    4: ($spacer * 1.25), //20
+    5: ($spacer * 1.5), //24
+    6: ($spacer * 1.75), //28
+    7: ($spacer * 1.875), //30
+    8: ($spacer * 2), //32
+    9: ($spacer * 2.25), //36
+    10: ($spacer * 2.5), //40
+    11: ($spacer * 3), //48
+    12: ($spacer * 3.75), //60
+    13: ($spacer * 4), //64
+    14: ($spacer * 4.5), //72
   ),
   $spacers
 );
@@ -293,14 +304,14 @@ $font-weight-bolder:          bolder !default;
 $font-weight-base:            $font-weight-normal !default;
 $line-height-base:            1.5 !default;
 
-$h1-font-size:                $font-size-base * 2.5 !default;
-$h2-font-size:                $font-size-base * 2 !default;
-$h3-font-size:                $font-size-base * 1.75 !default;
-$h4-font-size:                $font-size-base * 1.5 !default;
-$h5-font-size:                $font-size-base * 1.25 !default;
-$h6-font-size:                $font-size-base !default;
+$h1-font-size:                $font-size-base * 2 !default; //32
+$h2-font-size:                $font-size-base * 1.75 !default; //28
+$h3-font-size:                $font-size-base * 1.5 !default; //24
+$h4-font-size:                $font-size-base * 1.25 !default; //20
+$h5-font-size:                $font-size-base !default;  //16
+$h6-font-size:                $font-size-base * .875 !default; //14
 
-$headings-margin-bottom:      $spacer / 2 !default;
+$headings-margin-bottom:      0 !default;
 $headings-font-family:        inherit !default;
 $headings-font-weight:        500 !default;
 $headings-line-height:        1.2 !default;

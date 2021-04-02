@@ -1,1 +1,18 @@
-@import "bootstrap/bootstrap.scss"
+@import "bootstrap/bootstrap.scss";
+
+.nav{
+    display: flex;
+    &-item{
+        display: block;
+        padding: 36px 48px 36px 0;
+    }
+}
+.line-dark{
+    background: $dark;
+    height: 40px;
+}
+
+.banner{
+    height: 420px;
+    background-image: url('');
+}

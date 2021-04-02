@@ -87,7 +87,7 @@ hr {
 // stylelint-disable-next-line selector-list-comma-newline-after
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  margin-bottom: $headings-margin-bottom;
+  margin-bottom: 0;
 }
 
 // Reset margins on paragraphs
@@ -96,7 +96,7 @@ h1, h2, h3, h4, h5, h6 {
 // bottom margin to use `rem` units instead of `em`.
 p {
   margin-top: 0;
-  margin-bottom: $paragraph-margin-bottom;
+  margin-bottom: 0;
 }
 
 // Abbreviations
@@ -127,6 +127,7 @@ ul,
 dl {
   margin-top: 0;
   margin-bottom: 1rem;
+  list-style: none;
 }
 
 ol ol,
@@ -185,8 +186,8 @@ a {
   background-color: transparent; // Remove the gray background on active links in IE 10.
 
   @include hover {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
+    color: $light-primary;
+    text-decoration: none;
   }
 }
 
@@ -248,7 +249,9 @@ figure {
 //
 
 img {
-  vertical-align: middle;
+  width: 100%;
+  height: auto;
+  display: block;
   border-style: none; // Remove the border on images inside links in IE 10-.
 }
 
