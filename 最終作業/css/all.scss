@@ -4,7 +4,8 @@
     display: flex;
     &-item{
         display: block;
-        padding: 36px 48px 36px 0;
+        padding: 36px 0 36px 48px;
+        font-size: 20px;
     }
 }
 .line-dark{
@@ -13,6 +14,30 @@
 }
 
 .banner{
+    background-image: url('https://github.com/vvvvvvii/js-train/blob/main/%E6%9C%80%E7%B5%82%E4%BD%9C%E6%A5%AD/img/photo-1552848469-b4c949fdded7.png?raw=true');
     height: 420px;
-    background-image: url('');
+    padding: 282px 0 48px 52px;
+}
+
+.section{
+    padding: 60px 0;
+    &-title{
+        margin-bottom: 32px;
+        font-size: 28px;
+        text-align: center;
+    }
+}
+
+.table{
+    width: 730px;
+    margin: 0 auto;
+    &-title{
+        font-size: 20px;
+    }
+    &-content{
+       text-align: center; 
+    }
+    &-icon{
+        color: $light-primary;
+    }
 }
