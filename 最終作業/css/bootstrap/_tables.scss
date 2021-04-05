@@ -9,18 +9,23 @@
 
   th,
   td {
-    padding: $table-cell-padding;
-    vertical-align: top;
-    border-bottom: $table-border-width solid $table-border-color;
+    padding-left: 0;
+    padding-right: 0;
+    vertical-align: center; 
+    border-bottom: 0;
+  }
+
+  tr{
+    border-bottom: 1px solid #BFBFBF;
   }
 
   thead th {
     vertical-align: bottom;
-    border-bottom: (1 * $table-border-width) solid $table-border-color;
+    border-bottom: 0;
   }
 
   tbody + tbody {
-    border-top: (2 * $table-border-width) solid $table-border-color;
+    border-top: 0;
   }
 
   .table {
@@ -36,7 +41,7 @@
 .table-sm {
   th,
   td {
-    padding: $table-cell-padding-sm;
+    padding: 12px 0;
   }
 }
 

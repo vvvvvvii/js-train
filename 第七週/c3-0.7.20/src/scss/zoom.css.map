@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,aAAa,AAAA,QAAQ,CAAA;EACnB,cAAc,EAAE,GAAG,CAAA,UAAU;EAC7B,UAAU,EAAE,OAAO;CACpB;;AAED,AAAA,aAAa,AAAA,SAAS,CAAA;EAClB,cAAc,EAAE,IAAI,CAAA,UAAU;EAC9B,UAAU,EAAE,MAAM;CACrB;;AAED,AAAA,aAAa,CAAC,OAAO,CAAC;EAClB,YAAY,EAAE,EAAE;CACnB",
-    "sources": [
-        "zoom.scss"
-    ],
-    "names": [],
-    "file": "zoom.css"
-}

@@ -1,5 +1,12 @@
 @import "bootstrap/bootstrap.scss";
 @import "swiper";
+.w-20{
+    width: 20%;
+}
+.w-30{
+    width: 30%;
+}
+
 .nav{
     display: flex;
     &-item{
@@ -29,8 +36,13 @@
 }
 
 .table{
-    width: 730px;
     margin: 0 auto;
+    &-sm{
+        width: 730px;
+    }
+    &-lg{
+        width: 920px;
+    }
     &-title{
         font-size: 20px;
     }
@@ -40,8 +52,44 @@
     &-icon{
         color: $light-primary;
     }
+    &-img{
+        width: 80px;
+        height: 80px;
+    }
 }
-
+.cxl-btn{
+    font-size: 24px;
+    cursor: pointer;
+}
+.cxl-all-btn{
+    display: block;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: 1px solid $dark;
+    border-radius: 4px;
+    text-align: center;
+    color: $dark;
+    &:hover{
+        background-color: $primary;
+        color: $light;
+    }
+}
+.send-booking-btn{
+    display: block;
+    width: 255px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 4px;
+    border: 0px solid #000;
+    text-align: center;
+    color: $light;
+    background: $dark;
+    font-size: 20px;
+    &:hover{
+        background-color: $primary;
+        color: $light;
+    }
+}
 .comment{
     &-product-img{
         width: 95px;
@@ -72,4 +120,40 @@
     border-radius: 50%;
     padding: 33px;
     font-size: 42px;
+}
+.product-select{
+    padding: 8px 12px;
+    margin-bottom: 32px;
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+}
+.product{
+    &-item{
+        position: relative;
+        font-size: 20px;
+    }
+    &-tag{
+        position: absolute;
+        top: 12px;
+        right: 10px;
+        padding: 8px 24px;
+        color: $light;
+        background: $dark;
+    }
+    &-btn{
+        display: block;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: $light;
+        background: $dark;
+        text-align: center;
+        margin-bottom: 8px;
+        &:hover{
+            background-color: $primary;
+            color: $light;
+        }
+    }
+    &-discount{
+        text-decoration: line-through;
+    }
 }
