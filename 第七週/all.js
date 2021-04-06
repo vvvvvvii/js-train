@@ -16,7 +16,6 @@ axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelAp
         if(response.status==200){
             data = response.data.data;
             showTicket(data);
-            drawChart(data);
         }
     })
     .catch(function(err){ //順便練習 vue 班預習課程
@@ -55,7 +54,6 @@ function addTicket(e){
             price: parseInt(addPrice.value)
         });
         showTicket(data);
-        drawChart(data);
         addTicketForm.reset();
     }
 }
@@ -75,6 +73,7 @@ function regionFilter(){
 }
 function showTicket(i){
     let str = "";
+    let areaNumObj={}; //放在內部才不會錯誤累加
     i.forEach(item=>{
         if(typeof(item.group)=="number"){
             item.group= `剩下最後 ${item.group}  組`;
@@ -108,23 +107,17 @@ function showTicket(i){
             </div>
         </a>
     </li>`
+        areaNumObj[item.area] = (areaNumObj[item.area] || 0) + 1; //整理c3.js資料
     })
     ticketList.innerHTML = str;
-    searchResultLength.innerHTML = `本次搜尋共${i.length}筆資料`
+    searchResultLength.innerHTML = `本次搜尋共${i.length}筆資料`;
+    let areaNumArr=[];
+    for(const[key,value] of Object.entries(areaNumObj)){
+        areaNumArr.push([`${key}`,value]);
+    }
+    drawChart(areaNumArr);
 }
-function drawChart(data){ //c3.js
-    let taipeiNum=0;
-    let taichungNum=0;
-    let kaohsiungNum=0;
-    data.forEach(item=>{
-        if(item.area=="台北"){
-            taipeiNum++
-        }else if(item.area=="台中"){
-            taichungNum++
-        }else{
-            kaohsiungNum++
-        }
-    })
+function drawChart(areaNumArr){ //c3.js
     let chart = c3.generate({
         bindto: '#areaChart',
         size: {
@@ -132,11 +125,7 @@ function drawChart(data){ //c3.js
             width: 160
         },
         data: {
-            columns: [
-                ['台北', taipeiNum],
-                ['台中', taichungNum],
-                ['高雄', kaohsiungNum]
-            ],
+            columns: areaNumArr,
             type: 'donut',
             colors: {
                 台北: '#26C0C7',
@@ -156,5 +145,4 @@ function drawChart(data){ //c3.js
             }
         },
     });    
-
 }
