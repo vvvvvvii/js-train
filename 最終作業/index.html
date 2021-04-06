@@ -324,25 +324,15 @@
                 </div>
             </div>
             <!--下拉選單和商品-->
-            <div class="row">
-                <select name="productSelect" id="productSelect" class="col-3 product-select">
-                    <option value="all">全部</option>
-                    <option value="bed">床架</option>
-                    <option value="storage">收納</option>
-                    <option value="curtain">窗簾</option>
-                </select>
-            </div>
-            <div class="row">
+            <select name="productSelect" id="productSelect" class="product-select">
+                <option value="all">全部</option>
+                <option value="bed">床架</option>
+                <option value="storage">收納</option>
+                <option value="curtain">窗簾</option>
+            </select>
+            <ul class="row" id="productList">
                 <!--axios 接資料-->
-                <div class="col-3 product-item">
-                    <img src="img/photo-1549388604-817d15aa0110.png" alt="Antony 雙人床架／雙人加大">
-                    <div class="product-tag">新品</div>
-                    <a href="#" class="product-btn">加入購物車</a>
-                    <p class="mb-2">Antony 雙人床架／雙人加大</p>
-                    <p class="product-discount">NT$18,000</p>
-                    <p class="h2">NT$12,000</p>
-                </div>
-            </div>
+            </ul>
         </div>
     </div>
     <div class="bg-secondary" id="bookingNow">
@@ -430,6 +420,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="all.js"></script>
 </body>
 </html>

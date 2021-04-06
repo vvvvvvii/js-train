@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
 @import "bootstrap/bootstrap.scss";
 @import "swiper";
+
 .w-20{
     width: 20%;
 }
@@ -142,6 +145,7 @@
     font-size: 42px;
 }
 .product-select{
+    width: 255px;
     padding: 8px 12px;
     margin-bottom: 32px;
     border: 1px solid #CED4DA;
@@ -151,6 +155,9 @@
     &-item{
         position: relative;
         font-size: 20px;
+    }
+    &-img{
+        height: 302px;
     }
     &-tag{
         position: absolute;
