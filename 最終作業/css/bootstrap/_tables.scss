@@ -51,18 +51,11 @@
 // Add or remove borders all around the table and between all the columns.
 
 .table-bordered {
-  border: $table-border-width solid $table-border-color;
+  border: $table-border-width solid $dark;
 
   th,
   td {
-    border: $table-border-width solid $table-border-color;
-  }
-
-  thead {
-    th,
-    td {
-      border-bottom-width: 2 * $table-border-width;
-    }
+    border: $table-border-width solid $dark;
   }
 }
 
