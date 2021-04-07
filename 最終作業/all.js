@@ -1,6 +1,5 @@
 const productList = document.querySelector("#productList");
 const shoppingCart = document.querySelector("#shoppingCart");
-
 let cartQuantityArr=[];
 
 const key = 'fm0fm0';
@@ -10,6 +9,7 @@ const cartDataUrl=`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/
 //addEventListener
 productList.addEventListener("click",addCart);
 shoppingCart.addEventListener("click",deleteCart);
+shoppingCart.addEventListener("click",amendCartNum);
 
 //function
 function init(){
@@ -40,7 +40,7 @@ function init(){
       let cartData = cart.data.carts;
       cartData.forEach(item=>{
         let str = `
-          <tr class="d-flex align-items-center pb-4 mb-4">
+          <tr class="d-flex align-items-center pb-4 mb-4" data-id="${item.id}">
             <td scope="row" class="table-title d-flex w-30 align-items-center">
               <img src="${item.product.images}" class="table-img" alt="${item.product.title}">
               <p class="ml-3">${item.product.title}</p>
@@ -48,7 +48,9 @@ function init(){
             <td class="table-title w-20 ml-7">
               NT$${item.product.price}
             </td>
-            <td class="table-title w-20 ml-7">${item.quantity}</td>
+            <td class="table-title w-20 ml-7">
+              <input type="number" value="${item.quantity}" min="1" max="999" class="table-num-input">
+            </td>
             <td class="table-title w-30 ml-7 d-flex justify-content-between">
               ${item.quantity*item.product.price}
               <a href="#" class="cxl-btn" data-id="${item.id}">
@@ -121,6 +123,7 @@ function deleteCart(e){
         alert("已清空購物車");
         history.go(0); 
       })
+      //不確定下方程式碼如何改進？本來想到用textContent搭配trim()，即可同時判斷點到<a><span>，但因為他們父元素不同不確定怎麼傳id/title資料，最後還是分兩次判斷
   }else if(e.target.className=="cxl-btn"){ //點到<a>清空一項
     let id = e.target.dataset.id;
     let title = e.target.parentNode.parentNode.children[0].textContent.trim();
@@ -140,6 +143,23 @@ function deleteCart(e){
         history.go(0); 
       })
   }
+}
+
+function amendCartNum(e){
+  if(e.target.className!="table-num-input"){
+    return;
+  }
+  let id = e.target.parentElement.parentElement.dataset.id;
+  let newNum = Number(e.target.value);
+  axios.patch(cartDataUrl,{
+    "data": {
+      "id": `${id}`,
+      "quantity": newNum
+    }
+  })
+    .then(function(res){
+      history.go(0); 
+    })
 }
 
 init();
