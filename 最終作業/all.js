@@ -1,5 +1,6 @@
 const productList = document.querySelector("#productList");
 const shoppingCart = document.querySelector("#shoppingCart");
+
 let cartQuantityArr=[];
 
 const key = 'fm0fm0';
@@ -8,6 +9,7 @@ const cartDataUrl=`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/
 
 //addEventListener
 productList.addEventListener("click",addCart);
+shoppingCart.addEventListener("click",deleteCart);
 
 //function
 function init(){
@@ -49,8 +51,8 @@ function init(){
             <td class="table-title w-20 ml-7">${item.quantity}</td>
             <td class="table-title w-30 ml-7 d-flex justify-content-between">
               ${item.quantity*item.product.price}
-              <a href="#">
-                <span class="material-icons cxl-btn">
+              <a href="#" class="cxl-btn" data-id="${item.id}">
+                <span class="material-icons">
                   clear
                 </span>
               </a>
@@ -105,6 +107,39 @@ function addCart(e){
     alert("已加入購物車");
     history.go(0); //自動重整畫面
   })
+}
+
+function deleteCart(e){
+  e.preventDefault();
+  //清空全部
+  if(e.target.className=="cxl-all-btn"){
+    if(confirm("是否確認清空購物車")==false){
+      return;
+    }
+    axios.delete(cartDataUrl)
+      .then(function(res){
+        alert("已清空購物車");
+        history.go(0); 
+      })
+  }else if(e.target.className=="cxl-btn"){ //點到<a>清空一項
+    let id = e.target.dataset.id;
+    let title = e.target.parentNode.parentNode.children[0].textContent.trim();
+    if(confirm(`是否確認刪除${title}？`))
+    axios.delete(`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${key}/carts/${id}`)
+      .then(function(res){
+        alert("已刪除");
+        history.go(0); 
+      })
+  }else if(e.target.parentElement.className=="cxl-btn"){ //點到<span>清空一項
+    let id = e.target.parentElement.dataset.id;
+    let title = e.target.parentNode.parentNode.parentNode.children[0].textContent.trim();
+    if(confirm(`是否確認刪除${title}？`))
+    axios.delete(`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${key}/carts/${id}`)
+      .then(function(res){
+        alert("已刪除");
+        history.go(0); 
+      })
+  }
 }
 
 init();
