@@ -1,7 +1,7 @@
 const productList = document.querySelector("#productList");
 const shoppingCart = document.querySelector("#shoppingCart");
 let cartQuantityArr=[];
-
+const sendBkBtn = document.querySelector('#sendBkBtn');
 const key = 'fm0fm0';
 const productDataUrl=`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${key}/products`;
 const cartDataUrl=`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${key}/carts`;
@@ -10,6 +10,7 @@ const cartDataUrl=`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/
 productList.addEventListener("click",addCart);
 shoppingCart.addEventListener("click",deleteCart);
 shoppingCart.addEventListener("click",amendCartNum);
+sendBkBtn.addEventListener("click",sendBk);
 
 //function
 function init(){
@@ -157,9 +158,12 @@ function amendCartNum(e){
       "quantity": newNum
     }
   })
-    .then(function(res){
-      history.go(0); 
-    })
+}
+
+function sendBk(e){
+  e.preventDefault();
+  console.log(e.target)
+  //
 }
 
 init();
