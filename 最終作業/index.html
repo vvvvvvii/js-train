@@ -358,30 +358,38 @@
     <div class="container">
         <div class="section">
             <h2 class="section-title">填寫預訂資料</h2>
-            <form class="w-30 m0-auto">
+            <form class="bk-form m0-auto">
                 <div class="form-group">
                     <label for="bookingName">姓名</label>
-                    <input type="text" class="form-control" id="bookingName" placeholder="請輸入姓名">
+                    <div class="d-flex align-items-center">
+                        <input type="text" class="form-control" id="bookingName" placeholder="請輸入姓名">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="bookingPhoneNum">電話</label>
-                    <input type="text" class="form-control" id="bookingPhoneNum" placeholder="請輸入電話">
+                    <div class="d-flex align-items-center">
+                        <input type="tel" class="form-control" id="bookingPhoneNum" placeholder="請輸入電話">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="bookingEmail">Email</label>
-                    <input type="email" class="form-control" id="bookingEmail" placeholder="請輸入Email">
+                    <div class="d-flex align-items-center">
+                        <input type="email" class="form-control" id="bookingEmail" placeholder="請輸入Email">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="bookingAddress">寄送地址</label>
-                    <input type="text" class="form-control" id="bookingAddress" placeholder="請輸入寄送地址">
+                    <div class="d-flex align-items-center">
+                        <input type="text" class="form-control" id="bookingAddress" placeholder="請輸入寄送地址">
+                    </div>
                 </div>
                 <div class="form-group mb-11">
                     <label for="paymentType">交易方式</label>
-                    <select class="form-control" id="paymentType">
-                        <option>ATM</option>
-                        <option>信用卡</option>
-                        <option>超商付款</option>
-                    </select>
+                        <select class="form-control" id="paymentType">
+                            <option>ATM</option>
+                            <option>信用卡</option>
+                            <option>超商付款</option>
+                        </select>
                 </div>
                 <a href="#" type="submit" class="send-booking-btn" id="sendBkBtn">送出預訂資料</a>
               </form>

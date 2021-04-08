@@ -2,9 +2,18 @@ const productList = document.querySelector("#productList");
 const shoppingCart = document.querySelector("#shoppingCart");
 let cartQuantityArr=[];
 const sendBkBtn = document.querySelector('#sendBkBtn');
+
 const key = 'fm0fm0';
+const token = '8RXdpGVbm2OvT97psX6xJ97THIK2';
+const config = {
+  headers: {
+    'Authorization': `${token}`
+  }
+};
 const productDataUrl=`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${key}/products`;
 const cartDataUrl=`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${key}/carts`;
+const orderUrl = `https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${key}/orders`;
+const orderDataUrl = `https://hexschoollivejs.herokuapp.com/api/livejs/v1/admin/${key}/orders`;
 
 //addEventListener
 productList.addEventListener("click",addCart);
@@ -162,8 +171,46 @@ function amendCartNum(e){
 
 function sendBk(e){
   e.preventDefault();
-  console.log(e.target)
-  //
+  const bkName = e.target.parentNode.children[0].children[1].children[0].value;
+  const bkTel = e.target.parentNode.children[1].children[1].children[0].value;
+  const bkEmail = e.target.parentNode.children[2].children[1].children[0].value;
+  const bkAddress = e.target.parentNode.children[3].children[1].children[0].value;
+  const bkPayment = e.target.parentNode.children[4].children[1].value;
+  const checkNull = [bkName,bkTel,bkEmail,bkAddress]; //單獨放到一陣列中判斷裡頭有無沒填的表格
+  if (checkNull.includes("")){ //如果有
+    const nullArr = checkNull.map(item=>item==""); //把checkNull用map重新分析，會回傳一個含true(沒填到)false（有填到）的新陣列
+    nullArr.forEach((item,index)=>{
+      if(item && e.target.parentNode.children[index].children[1].innerHTML.includes('<span class="warning-str">必填！</span>')==false){ //只要該陣列裡的true值，且之前沒有已加過必填字樣
+        let str = `<span class="warning-str">必填！</span>`
+        e.target.parentNode.children[index].children[1].innerHTML+= str; //都要加上「必填！」
+      }else if(item==false && e.target.parentNode.children[index].children[1].innerHTML.includes('<span class="warning-str">必填！</span>')){ //該陣列裡的false值，且之前已加過必填字樣
+        e.target.parentNode.children[index].children[1].children[1].innerHTML=""; //把必填字樣拿掉
+      }
+    })
+    return; //且不繼續跑下面的axios
+  }
+  axios.post(orderUrl,{
+    "data": {
+      "user": {
+        "name": bkName,
+        "tel": bkTel,
+        "email": bkEmail,
+        "address": bkAddress,
+        "payment": bkPayment
+      }
+    }
+  })
+  .then(function(res){
+    alert("已完成預定，請留意您的信箱是否有收到訂單確認信")
+    history.go(0); 
+  })
+  .catch(function(err){
+    let message = err.response.data.message;
+    if(message=="當前購物車內沒有產品，所以無法送出訂單 RRR ((((；゜Д゜)))"){
+      alert("購物車沒有商品唷！")
+      return;
+    }
+  })
 }
 
 init();
