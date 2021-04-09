@@ -121,12 +121,13 @@ function renderOrderForm(res){
             </tr>
         `
         ordersForm.innerHTML+=str2;
-        /*let item = document.querySelector(`[data-id=${order.id}]`); //晚點修
+
+        let item = document.querySelector("[data-id="+CSS.escape(order.id)+"]"); //When you use a attribute selectors like [attr = value],You didn't quote the value, so it's parsed as an identifier. However,In CSS, identifiers [...] cannot start with a digit,Therefore, your numerical selector is invalid. You can:document.querySelector('[data-picture =' + CSS.escape(y) + ']')
         if(status=="已處理"){ //status=已處理 時加上active這個class
             item.children[6].classList.add('backstage-table-status-active');
         }else{ //否則移除active這個class
             item.children[6].classList.remove('backstage-table-status-active');
-        }*/
+        }
     })
 }
 

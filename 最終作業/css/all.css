@@ -13816,6 +13816,10 @@ body {
   padding: 10px 12px;
 }
 
+.backstage-table {
+  margin-bottom: 108px;
+}
+
 .backstage-table td {
   padding: 12px 16px;
 }
