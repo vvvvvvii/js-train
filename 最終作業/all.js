@@ -14,7 +14,7 @@ const orderUrl = `https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/$
 productList.addEventListener("click",addCart);
 productSelect.addEventListener("change",productFilter);
 shoppingCart.addEventListener("click",deleteCart);
-shoppingCart.addEventListener("click",amendCartNum);
+shoppingCart.addEventListener("change",amendCartNum);
 sendBkBtn.addEventListener("click",sendBk);
 
 //function
@@ -161,6 +161,7 @@ function deleteCart(e){
 }
 
 function amendCartNum(e){
+  console.log(e.target.className)
   if(e.target.className!="table-num-input"){
     return;
   }
