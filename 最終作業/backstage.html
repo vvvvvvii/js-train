@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     <link rel="stylesheet" href="css/all.css">
     <title>WOWOROOM 後台管理系統</title>
 </head>
@@ -38,13 +37,13 @@
             <thead>
                 <tr>
                     <td scope="col">訂單編號</td>
-                    <td scope="col">聯絡人</td>
+                    <td scope="col" class="backstage-table-col-name">聯絡人</td>
                     <td scope="col">聯絡地址</td>
                     <td scope="col">電子郵件</td>
                     <td scope="col">訂單品項</td>
                     <td scope="col">訂單日期</td>
-                    <td scope="col">訂單狀態</td>
-                    <td scope="col">操作</td>
+                    <td scope="col" class="backstage-table-col-status">訂單狀態</td>
+                    <td scope="col" class="backstage-table-col-del">操作</td>
                 </tr>
             </thead>
             <tbody id="ordersForm">
@@ -56,7 +55,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="backstage.js"></script>
 </body>

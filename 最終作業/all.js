@@ -4,6 +4,8 @@ const productSelect = document.querySelector("#productSelect");
 let cartQuantityArr=[];
 const sendBkBtn = document.querySelector('#sendBkBtn');
 
+const key = 'fm0fm0';
+
 const productDataUrl=`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${key}/products`;
 const cartDataUrl=`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${key}/carts`;
 const orderUrl = `https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${key}/orders`;

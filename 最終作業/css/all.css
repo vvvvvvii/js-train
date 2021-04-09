@@ -13830,6 +13830,18 @@ body {
   color: #fff;
 }
 
+.backstage-table-col-name {
+  width: 120px;
+}
+
+.backstage-table-col-status {
+  width: 100px;
+}
+
+.backstage-table-col-del {
+  width: 70px;
+}
+
 .cxl-btn {
   font-size: 24px;
   cursor: pointer;

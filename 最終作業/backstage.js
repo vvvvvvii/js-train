@@ -1,4 +1,5 @@
 const ordersForm = document.querySelector('#ordersForm');
+const cxlAllBtn = document.querySelector('.cxl-all-btn')
 const key = 'fm0fm0';
 const token = '8RXdpGVbm2OvT97psX6xJ97THIK2';
 const config = {
@@ -6,9 +7,13 @@ const config = {
         'Authorization': `${token}`
     }
 };
-
 const orderDataUrl = `https://hexschoollivejs.herokuapp.com/api/livejs/v1/admin/${key}/orders`;
 
+//eventListener
+ordersForm.addEventListener("click",deleteOrder);
+cxlAllBtn.addEventListener("click",deleteAllOrder);
+
+//functions
 function init(){
     axios.get(orderDataUrl,config)
     .then(function(res){
@@ -57,6 +62,24 @@ function render(res){
         `
         ordersForm.innerHTML+=str2;
     })
+}
+
+function deleteAllOrder(e){
+    e.preventDefault();
+    if(confirm(`是否確認刪除全部訂單？`))
+    axios.delete(orderDataUrl,config)
+        .then(function(res){
+            alert("已清空全數訂單");
+            history.go(0); //自動重整畫面
+        })
+}
+
+function deleteOrder(e){
+    e.preventDefault();
+    //點擊單項刪除鈕時
+    if(e.target.className=="backstage-cxl-btn"){
+
+    }
 }
 
 init();

@@ -72,6 +72,15 @@
         background: $dark;
         color: $light;
     }
+    &-col-name{
+        width: 120px;
+    }
+    &-col-status{
+        width: 100px;
+    }
+    &-col-del{
+        width: 70px;
+    }
 }
 .cxl-btn{
     font-size: 24px;
