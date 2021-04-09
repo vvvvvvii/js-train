@@ -27,13 +27,13 @@ function render(res){
         let products = order.products;
         let str = "";
         products.forEach(product=>{
-            str+=`${product.title}`
+            str+=`${product.title}<br>`
         })
         let timestamp = order.createdAt;
         let date = new Date(timestamp * 1000).toISOString().split('T').splice(0,1).toString(); //時間戳換算公式為new Date(timestamp * 1000)並用.toISOString()轉成ISO格式，再用Ｔ作為切割點取得日期和時間，最後用splice把時間部分切掉
         date = date.replace(/[-]/g,"/"); //把日期格式從2021-01-01改成2021/01/01
         let str2 = `
-            <tr>
+            <tr data-id="${order.id}">
                 <td scope="row">
                     10088377474
                 </td>
@@ -76,9 +76,15 @@ function deleteAllOrder(e){
 
 function deleteOrder(e){
     e.preventDefault();
-    //點擊單項刪除鈕時
     if(e.target.className=="backstage-cxl-btn"){
-
+        const orderId = e.target.parentNode.parentNode.dataset.id;
+        const orderNum = e.target.parentNode.parentNode.children[0].textContent.trim();
+        if(confirm(`是否確認刪除訂單${orderNum}？`))
+        axios.delete(`https://hexschoollivejs.herokuapp.com/api/livejs/v1/admin/${key}/orders/${orderId}`,config)
+            .then(function(res){
+                alert(`已刪除訂單${orderNum}`);
+                history.go(0);
+            })
     }
 }
 
