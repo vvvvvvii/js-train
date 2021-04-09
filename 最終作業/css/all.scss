@@ -64,13 +64,17 @@
     td{
         padding: 12px 16px;
     }
-    &-status-undo{
+    &-status{
+        cursor: pointer;
         background: $gray-dark;
         color: $light;
-    }
-    &-status-done{
-        background: $dark;
-        color: $light;
+        &:hover{
+            opacity: .8;
+        }
+        &-active{
+            background: $dark;
+            color: $light;
+        }
     }
     &-col-name{
         width: 120px;

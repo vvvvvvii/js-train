@@ -13820,12 +13820,17 @@ body {
   padding: 12px 16px;
 }
 
-.backstage-table-status-undo {
+.backstage-table-status {
+  cursor: pointer;
   background: #797979;
   color: #fff;
 }
 
-.backstage-table-status-done {
+.backstage-table-status:hover {
+  opacity: .8;
+}
+
+.backstage-table-status-active {
   background: #000;
   color: #fff;
 }
