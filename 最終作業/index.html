@@ -6,6 +6,7 @@
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <link rel="stylesheet" href="css/all.css">
     <title>WOWOROOM</title>
 </head>
@@ -32,7 +33,7 @@
         </ul>
     </div>
     <div class="line-dark mb-7"></div>
-    <div class="container" id="advantage">
+    <div class="container" id="advantage" data-aos="fade-up">
         <div class="banner">
             <h3 class="h1 text-light">
                 窩窩家居<br>
@@ -42,22 +43,22 @@
         <div class="section">
             <h2 class="section-title mb-6">床墊優勢</h2>
             <div class="row">
-                <div class="col-4">
+                <div class="col-4" data-aos="zoom-in">
                     <img src="img/photo-1582282577230-2f59c636e60b.png" alt="eco friendly" class="mb-1">
                     <p class="h4 text-center">原木料環保</p>
                 </div>
-                <div class="col-4">
+                <div class="col-4" data-aos="zoom-in">
                     <img src="img/photo-1560164301-6ac46d2d61c4.png" alt="easy to store" class="mb-1">
                     <p class="h4 text-center">好收納</p>
                 </div>
-                <div class="col-4">
+                <div class="col-4" data-aos="zoom-in">
                     <img src="img/photo-1560846389-e4e6d764cd61.png" alt="easy to assemble" class="mb-1">
                     <p class="h4 text-center">好組裝</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bg-secondary">
+    <div class="bg-secondary" data-aos="fade-up">
         <div class="container">
             <div class="section">
                 <h2 class="section-title">家具比較</h2>
@@ -134,7 +135,7 @@
         <div class="container">
             <div class="section">
                 <h2 class="section-title text-light">好評推薦</h2>
-                <div class="swiper-container">
+                <div class="swiper-container" data-aos="fade-left">
                     <div class="swiper-wrapper">
                         <!--在前端插入一個空的框框-->
                         <div class="swiper-slide first">
@@ -278,51 +279,51 @@
         <div class="section">
             <h2 class="section-title">運送方式</h2>
             <!--購物流程圖示-->
-            <div class="d-flex justify-content-center align-items-baseline mb-14">
-                <div class="text-center">
+            <ul class="d-flex justify-content-center align-items-baseline mb-14">
+                <li class="text-center" data-aos="flip-left">
                     <span class="material-icons icon-round-border mb-2">
                         shopping_cart
                     </span>
                     <p class="h4">STEP.1</p>
                     <p>選購商品</p>
-                </div>
-                <div class="ml-7 text-center">
+                </li>
+                <li class="ml-7 text-center">
                     <span class="material-icons">
                         arrow_right
                     </span>
-                </div>
-                <div class="ml-7 text-center">
+                </li>
+                <li class="ml-7 text-center" data-aos="flip-left">
                     <span class="material-icons icon-round-border mb-2">
                         format_list_bulleted
                     </span>
                     <p class="h4">STEP.2</p>
                     <p>填寫預定資料</p>
-                </div>
-                <div class="ml-7 text-center">
+                </li>
+                <li class="ml-7 text-center">
                     <span class="material-icons">
                         arrow_right
                     </span>
-                </div>
-                <div class="ml-7 text-center">
+                </li>
+                <li class="ml-7 text-center" data-aos="flip-left">
                     <span class="material-icons icon-round-border mb-2">
                         done
                     </span>
                     <p class="h4">STEP.3</p>
                     <p>預定成功</p>
-                </div>
-                <div class="ml-7 text-center">
+                </li>
+                <li class="ml-7 text-center">
                     <span class="material-icons">
                         arrow_right
                     </span>
-                </div>
-                <div class="ml-7 text-center">
+                </li>
+                <li class="ml-7 text-center" data-aos="flip-left">
                     <span class="material-icons icon-round-border mb-2">
                         email
                     </span>
                     <p class="h4">STEP.4</p>
                     <p>Email 付款資訊</p>
-                </div>
-            </div>
+                </li>
+            </ul>
             <!--下拉選單和商品-->
             <select name="productSelect" id="productSelect" class="product-select">
                 <option value="all">全部</option>
@@ -335,7 +336,7 @@
             </ul>
         </div>
     </div>
-    <div class="bg-secondary" id="bookingNow">
+    <div class="bg-secondary" id="bookingNow" data-aos="fade-up">
         <div class="container">
             <div class="section">
                 <h2 class="section-title">我的購物車</h2>
@@ -355,7 +356,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" data-aos="fade-up">
         <div class="section">
             <h2 class="section-title">填寫預訂資料</h2>
             <form class="bk-form m0-auto">
@@ -391,8 +392,27 @@
                             <option>超商付款</option>
                         </select>
                 </div>
-                <a href="#" type="submit" class="send-booking-btn" id="sendBkBtn">送出預訂資料</a>
-              </form>
+                <a href="#" type="submit" class="send-booking-btn" id="checkForm" data-toggle="modal">送出預訂資料</a>
+                <!-- Modal -->
+                <div class="modal fade" id="modalBeforeSendBk" tabindex="-1" role="dialog" aria-labelledby="modalBeforeSendBk" aria-hidden="true">                
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">您購買的商品為</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">再考慮一下</button>
+                                <button type="button" class="btn btn-primary" id="sendBkBtn">確認購買</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -401,6 +421,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="all.js"></script>
 </body>
 </html>

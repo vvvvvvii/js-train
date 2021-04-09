@@ -2,7 +2,10 @@ const productList = document.querySelector("#productList");
 const shoppingCart = document.querySelector("#shoppingCart");
 const productSelect = document.querySelector("#productSelect");
 let cartQuantityArr=[];
+const bkForm = document.querySelector('.bkform');
+const checkFormBtn = document.querySelector('#checkForm');
 const sendBkBtn = document.querySelector('#sendBkBtn');
+const modalBody = document.querySelector('.modal-body');
 
 const key = 'fm0fm0';
 
@@ -15,6 +18,7 @@ productList.addEventListener("click",addCart);
 productSelect.addEventListener("change",productFilter);
 shoppingCart.addEventListener("click",deleteCart);
 shoppingCart.addEventListener("change",amendCartNum);
+checkFormBtn.addEventListener("click",checkForm);
 sendBkBtn.addEventListener("click",sendBk);
 
 //function
@@ -40,7 +44,7 @@ function showProduct(product){
   productList.innerHTML = "";
   product.forEach(item=>{
     let str = `
-      <li class="col-3 product-item" data-category="${item.category}" data-title="${item.title}">
+      <li class="col-3 product-item" data-category="${item.category}" data-title="${item.title}" data-aos="zoom-in">
         <img src="${item.images}" class="product-img" alt="${item.title}">
         <div class="product-tag">新品</div>
         <a href="#" class="product-btn" data-id="${item.id}">加入購物車</a>
@@ -175,15 +179,16 @@ function amendCartNum(e){
   })
 }
 
-function sendBk(e){
+function checkForm(e){
   e.preventDefault();
+  //檢查表單資料有無填寫
   const bkName = e.target.parentNode.children[0].children[1].children[0].value;
   const bkTel = e.target.parentNode.children[1].children[1].children[0].value;
   const bkEmail = e.target.parentNode.children[2].children[1].children[0].value;
   const bkAddress = e.target.parentNode.children[3].children[1].children[0].value;
   const bkPayment = e.target.parentNode.children[4].children[1].value;
   const checkNull = [bkName,bkTel,bkEmail,bkAddress]; //單獨放到一陣列中判斷裡頭有無沒填的表格
-  if (checkNull.includes("")){ //如果有
+  if (checkNull.includes("")){ //如果有東西空的就不跑下面
     const nullArr = checkNull.map(item=>item==""); //把checkNull用map重新分析，會回傳一個含true(沒填到)false（有填到）的新陣列
     nullArr.forEach((item,index)=>{
       if(item && e.target.parentNode.children[index].children[1].innerHTML.includes('<span class="warning-str">必填！</span>')==false){ //只要該陣列裡的true值，且之前沒有已加過必填字樣
@@ -193,8 +198,35 @@ function sendBk(e){
         e.target.parentNode.children[index].children[1].children[1].innerHTML=""; //把必填字樣拿掉
       }
     })
-    return; //且不繼續跑下面的axios
+  }else{ //不然以彈跳視窗顯示訂單細項
+    e.target.setAttribute('data-target',"#modalBeforeSendBk"); //設定這個讓彈跳視窗出來
+    modalBody.innerHTML =""; //這裡要先清空，避免再次打開modal時重複顯示舊資料
+    let modalStr = `<ul></ul>`
+    axios.get(cartDataUrl)
+      .then(function(res){
+        let carts = res.data.carts;
+        carts.forEach(cart=>{
+          modalStr = `
+            <li class="mb-2 d-flex justify-content-between align-items-center">
+              <p class="font-weight-bold">${cart.product.title}</p>
+              <p class="h6 text-primary">${cart.quantity} 組</p>
+            </li>
+          `
+          modalBody.innerHTML+= modalStr;
+        })
+        modalStr2 = `<p class="h4 font-weight-bold text-right mt-5">總計 <span class="text-light-primary">${res.data.finalTotal}</span> 元</p>`;
+        modalBody.innerHTML+= modalStr2;
+      })
   }
+}
+
+function sendBk(e){
+  const bkName = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.children[0].children[1].children[0].value;
+  const bkTel = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.children[1].children[1].children[0].value;
+  const bkEmail = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.children[2].children[1].children[0].value;
+  const bkAddress = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.children[3].children[1].children[0].value;
+  const bkPayment = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.children[4].children[1].value;
+
   axios.post(orderUrl,{
     "data": {
       "user": {
@@ -252,3 +284,7 @@ var swiper = new Swiper('.swiper-container', {
   slidesPerColumnFill: 'row',
 });
 
+//aos
+AOS.init({
+  duration: 1000,
+})
