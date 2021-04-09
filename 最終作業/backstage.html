@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="c3-0.7.20/c3.css">
     <link rel="stylesheet" href="css/all.css">
     <title>WOWOROOM 後台管理系統</title>
 </head>
@@ -29,6 +30,7 @@
         <div class="section pb-13">
             <h2 class="section-title mb-10">全品項營收比重</h2>
             <!--c3.js pie-->
+            <div id="salePie"></div>
         </div>
         <div class="d-flex justify-content-end">
             <a href="#" class="cxl-all-btn mb-2 d-inline-block">清除全部訂單</a>
@@ -56,6 +58,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="c3-0.7.20/docs/js/d3-5.8.2.min.js" charset="utf-8"></script>
+    <script src="c3-0.7.20/c3.min.js"></script>
     <script src="backstage.js"></script>
 </body>
 </html>

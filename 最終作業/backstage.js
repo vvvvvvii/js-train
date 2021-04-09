@@ -18,17 +18,75 @@ cxlAllBtn.addEventListener("click",deleteAllOrder);
 function init(){
     axios.get(orderDataUrl,config)
     .then(function(res){
-        render(res)
+        renderPie(res);
+        renderOrderForm(res);
     })
 }
 
-function render(res){
+function renderPie(res){
+    let orders = res.data.orders;
+    let productsArr = []; //等等要把整理好的商品放進來
+    orders.forEach(order=>{ //讓所有訂單都跑這個流程
+        let orderItem = order.products.map(item=>item.title); //每個訂單可能有不只一項商品，把商品名稱都放進orderItem這個陣列
+        productsArr.push(orderItem); //把整好的陣列再放進products陣列，可得到全部訂單的全部商品陣列
+    })
+    productsArr = productsArr.flat(Infinity); //陣列扁平化方便等等處理
+    let productsObj = {};
+    productsArr.forEach(item=>productsObj[item] = (productsObj[item]||0)+1);
+    productsArr = Object.entries(productsObj); //物件轉回陣列
+
+    let nums = productsArr.map(item=>item[1]).sort((x,y)=>y-x); //把數量單獨抽出來變成一個大排到小的陣列
+    nums = [...new Set(nums)];//nums應該刪掉重複數，等等推進陣列才不重複
+
+    let rankArr = []; //最後用這個放到c3.js生成圓餅圖
+    //目的：找到productsObj裡前三名數量的，各自顯示在圓餅圖三筆資料中，剩下的數量全部加起來，顯示為其他
+    if(nums.length>3){ //若已刪掉重複的數，nums的length還多於三，代表有第四名或更後面的名次
+        //rankArr前三名正常顯示
+        for(let j=0;j<3;j++){
+            for(let i=0;i<productsArr.length;i++){
+                if(productsArr[i][1]==nums[j]){
+                    rankArr.push(productsArr[i]);
+                }
+            }
+        }
+        //rankArr的第四名以後要全部加起來
+        for(let j=3;j<nums.length;j++){
+            let others = 0;
+            for(let i=0;i<productsArr.length;i++){
+                if(productsArr[i][1]==nums[j]){
+                    others+=productsArr[i][1];
+                }
+            }
+            rankArr.push(["其他",others]);
+        }
+    }else{ //不然代表只有前三名
+        nums.forEach(function(num){
+            for(let i=0;i<productsArr.length;i++){
+                if(productsArr[i][1]==num){
+                    rankArr.push(productsArr[i]);
+                }
+            }
+        })
+    }
+    var chart = c3.generate({
+        bindto: '#salePie',
+        data: {
+            columns: rankArr,
+            type : 'pie',
+        },
+        color: {
+            pattern: ['#301E5F','#5434A7','#9D7FEA',"#DACBFF"]
+        }
+    });
+}
+
+function renderOrderForm(res){
     let orders = res.data.orders;
     orders.forEach(order=>{
         let products = order.products;
         let str = "";
         products.forEach(product=>{
-            str+=`${product.title}<br>`
+            str+=`${product.title}*${product.quantity}個<br>`
         })
         let timestamp = order.createdAt;
         let date = new Date(timestamp * 1000).toISOString().split('T').splice(0,1).toString(); //時間戳換算公式為new Date(timestamp * 1000)並用.toISOString()轉成ISO格式，再用Ｔ作為切割點取得日期和時間，最後用splice把時間部分切掉
@@ -63,12 +121,12 @@ function render(res){
             </tr>
         `
         ordersForm.innerHTML+=str2;
-        let item = document.querySelector(`[data-id=${order.id}]`);
+        /*let item = document.querySelector(`[data-id=${order.id}]`); //晚點修
         if(status=="已處理"){ //status=已處理 時加上active這個class
             item.children[6].classList.add('backstage-table-status-active');
         }else{ //否則移除active這個class
             item.children[6].classList.remove('backstage-table-status-active');
-        }
+        }*/
     })
 }
 
