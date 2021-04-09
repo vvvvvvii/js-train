@@ -95,7 +95,7 @@ function renderOrderForm(res){
         let str2 = `
             <tr data-id="${order.id}">
                 <td scope="row">
-                    10088377474
+                    ${order.id}
                 </td>
                 <td>
                     ${order.user.name}<br>${order.user.tel}
